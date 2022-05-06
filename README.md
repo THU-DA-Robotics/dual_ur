@@ -2,6 +2,8 @@
 
 本repo包括专门为实验室的双臂UR5设计的一系列ROS package。
 
+
+
 ## 依赖
 
 * ROS Noetic
@@ -19,14 +21,22 @@ $ git clone https://github.com/THU-DA-Robotics/Universal_Robots_ROS_Driver.git s
 
 # clone fork of the description. This is currently necessary, until the changes are merged upstream.
 $ git clone -b calibration_devel https://github.com/THU-DA-Robotics/universal_robot.git src/universal_robot
+```
 
-# install dependencies
+Clone the repo:
+
+```
+cd <YOUR_PATH>/catkin_ws/src
+git clone https://github.com/THU-DA-Robotics/dual_ur.git
+```
+
+安装 dependencies：
+
+```
 $ sudo apt update -qq
 $ rosdep update
 $ rosdep install --from-paths src --ignore-src -y
 ```
-
-下载本pkg。
 
 
 
