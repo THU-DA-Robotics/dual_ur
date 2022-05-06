@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<launch>
+    <group ns="robot_0">
+        <include file="$(find ur_robot_driver)/launch/ur5_bringup.launch">
+            <arg name="robot_ip" value="192.168.100.50" />
+            <arg name="reverse_port" value="50001" />
+            <arg name="script_sender_port" value="50002"/>
+            <arg name="trajectory_port" value="50003"/>
+            <arg name="tf_prefix" value="robot_0/"/>
+            <arg name="controller_config_file" value="$(find dual_ur_ros_driver)/config/robot_0_ur5_controllers.yaml"/>
+            <arg name="robot_description_file" value="$(find dual_ur_ros_driver)/launch/load_dual_ur5.launch" />
+        </include>
+    </group>
+
+
+    <group ns="robot_1">
+        <include file="$(find ur_robot_driver)/launch/ur5_bringup.launch">
+            <arg name="robot_ip" value="192.168.101.50" />
+            <arg name="reverse_port" value="50004" />
+            <arg name="script_sender_port" value="50005"/>
+            <arg name="trajectory_port" value="50006"/>
+            <arg name="tf_prefix" value="robot_1/"/>
+            <arg name="controller_config_file" value="$(find dual_ur_ros_driver)/config/robot_1_ur5_controllers.yaml"/>
+            <arg name="robot_description_file" value="$(find dual_ur_ros_driver)/launch/load_dual_ur5.launch" />
+        </include>
+    </group>
+
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find dual_ur_ros_driver)/rviz/view_robot.rviz" required="true" />
+
+
+
+</launch>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="namespace_prefix" default="ur5_realsense_calibration" />
+
+    <arg name="robot_ip" doc="The IP address of the UR5 robot" default="192.168.100.50" />
+
+    <arg name="marker_size" doc="Size of the ArUco marker used, in meters" default="0.160"/>
+	<arg name="marker_id" doc="The ID of the ArUco marker used" default="100"/>
+
+	<!-- start the left (main) camera -->
+    <include file="$(find dlo_perception_pkg)/launch/rs_camera_rgb.launch">
+        <arg name="camera" value="cam_1" />
+        <arg name="serial_no" value="943222072532" />
+    </include>
+
+    <!-- start ArUco -->
+    <node name="aruco_tracker" pkg="aruco_ros" type="single">
+        <remap from="/camera_info" to="/cam_1/color/camera_info" />
+        <remap from="/image" to="/cam_1/color/image_raw" />
+        <param name="image_is_rectified" value="true"/>
+        <param name="marker_size"        value="$(arg marker_size)"/>
+        <param name="marker_id"          value="$(arg marker_id)"/>
+        <param name="reference_frame"    value="cam_1_link"/>
+        <param name="camera_frame"       value="cam_1_color_optical_frame"/>
+        <param name="marker_frame"       value="camera_marker" />
+    </node>
+
+    <!-- start the robot -->
+    <include file="$(find ur5_moveit_config)/launch/ur5_moveit_planning_execution.launch">
+        <arg name="sim" value="false" />
+    </include>
+
+    <!-- start easy_handeye -->
+    <include file="$(find easy_handeye)/launch/calibrate.launch" >
+        <arg name="namespace_prefix" value="$(arg namespace_prefix)" />
+        <arg name="eye_on_hand" value="false" />
+
+        <arg name="move_group" value="manipulator" />
+        <arg name="tracking_base_frame" value="cam_1_link" />
+        <arg name="tracking_marker_frame" value="camera_marker" />
+        <arg name="robot_base_frame" value="base" />
+        <arg name="robot_effector_frame" value="wrist_3_link" />
+
+        <arg name="freehand_robot_movement" value="false" />
+        <arg name="robot_velocity_scaling" value="0.1" />
+        <arg name="robot_acceleration_scaling" value="0.2" />
+    </include>
+</launch>

@@ -1,0 +1,41 @@
+controller_list:
+  - name: fake_arm_0_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - arm_0_shoulder_pan_joint
+      - arm_0_shoulder_lift_joint
+      - arm_0_elbow_joint
+      - arm_0_wrist_1_joint
+      - arm_0_wrist_2_joint
+      - arm_0_wrist_3_joint
+  - name: fake_arm_1_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - arm_1_shoulder_pan_joint
+      - arm_1_shoulder_lift_joint
+      - arm_1_elbow_joint
+      - arm_1_wrist_1_joint
+      - arm_1_wrist_2_joint
+      - arm_1_wrist_3_joint
+  - name: fake_dual_arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - arm_0_shoulder_pan_joint
+      - arm_0_shoulder_lift_joint
+      - arm_0_elbow_joint
+      - arm_0_wrist_1_joint
+      - arm_0_wrist_2_joint
+      - arm_0_wrist_3_joint
+      - arm_1_shoulder_pan_joint
+      - arm_1_shoulder_lift_joint
+      - arm_1_elbow_joint
+      - arm_1_wrist_1_joint
+      - arm_1_wrist_2_joint
+      - arm_1_wrist_3_joint
+initial:  # Define initial robot poses per group
+  - group: arm_0
+    pose: zero
+  - group: arm_1
+    pose: zero
+  - group: dual_arm
+    pose: zero
