@@ -16,7 +16,7 @@
   <!-- use common launch file and pass all arguments to it -->
   <!-- <include file="$(find dual_ur_ros)/launch/load_dual_ur.launch" pass_all_args="true"/> -->
 
-  <param name="robot_description" command="$(find xacro)/xacro '$(find dual_ur_description)/urdf/dual_ur.xacro'
+  <param name="robot_description" command="$(find xacro)/xacro '$(find dual_ur_description)/urdf/dual_ur5_robotiq2f85.urdf.xacro'
     joint_limit_params:=$(arg joint_limit_params)
     kinematics_params:=$(arg kinematics_params)
     physical_params:=$(arg physical_params)

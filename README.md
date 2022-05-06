@@ -12,15 +12,18 @@
 
 
 ## 安装
-安装 Universal_Robots_ROS_Driver 和 universal_robot:
+安装依赖的package（可根据需要选择性安装）:
 ```
-cd <YOUR_PATH>/catkin_ws
+cd <YOUR_PATH>/catkin_ws/src
 
-# clone the driver
-$ git clone https://github.com/THU-DA-Robotics/Universal_Robots_ROS_Driver.git src/Universal_Robots_ROS_Driver
+# ur 的 description 和 moveit config
+git clone https://github.com/THU-DA-Robotics/universal_robot.git -b calibration_devel
 
-# clone fork of the description. This is currently necessary, until the changes are merged upstream.
-$ git clone -b calibration_devel https://github.com/THU-DA-Robotics/universal_robot.git src/universal_robot
+# 用于驱动真实 ur
+git clone https://github.com/THU-DA-Robotics/Universal_Robots_ROS_Driver.git
+
+# robotiq 夹爪
+git clone https://github.com/THU-DA-Robotics/robotiq.git -b noetic_devel
 ```
 
 Clone the repo:
@@ -42,52 +45,62 @@ $ rosdep install --from-paths src --ignore-src -y
 
 
 ## 使用
+
+目前已写好的模型：
+* dual_ur5
+* dual_ur5_robotiq2f85
+
+以下命令说明以 dual_ur5 为例。
+
 记得要先：
 ```
 source devel/setup.bash
 ```
 
-
 ### dual_ur_description
 
-#### dual_ur.urdf.xacro 转为 dual_ur.urdf
 
+
+
+#### rviz中可视化 xacro
+```
+roslaunch dual_ur_description view_dual_ur5.launch
+```
+
+#### xacro 转为 urdf
 ```
 cd src/dual_ur/dual_ur_description/urdf
-rosrun xacro xacro -o dual_ur.urdf dual_ur.urdf.xacro
-```
-#### rviz中可视化urdf
-
-```
-# 需要先获得dual_ur.urdf文件
-roslaunch dual_ur_description visualize_urdf.launch
+rosrun xacro xacro -o dual_ur5.urdf dual_ur5.urdf.xacro
 ```
 
 
+### xxx_moveit_config
 
-### dual_ur_moveit_config
-
-#### 对moveit_config进行修改
+#### 创建/修改
 
 ```
 roslaunch moveit_setup_assistant setup_assistant.launch
 ```
+若要基于 xacro 文件创建新的 moveit_config 包，则点击 Create New Moveit Configuration Package，再选中相应的 xacro 文件。
 
-点击 Edit Existing Moveit Configuration Package，再选中 dual_ur_moveit_config 文件夹，再点击右下角的 Load Files。
+若要修改，则点击 Edit Existing Moveit Configuration Package，再选中 dual_ur5_moveit_config 文件夹，再点击右下角的 Load Files。
 
 具体配置方法参考 [MoveIt Setup Assistant](https://ros-planning.github.io/moveit_tutorials/doc/setup_assistant/setup_assistant_tutorial.html#moveit-setup-assistant)。
+
+**TIPs**: 
+* 在生成了 xxx_moveit_config 包后，想再修改原始的 xacro 文件名称就很困难了，可能需要完全重新使用 MoveIt Setup Assistant 配置一遍，或者手动对所有文件中的索引名称进行修改。
 
 #### rviz中简单使用moveit
 
 ```
-roslaunch dual_ur_moveit_config demo.launch
+roslaunch dual_ur5_moveit_config demo.launch
 ```
 
 
 
 
 
-### dual_ur_ros_driven
+### dual_ur_ros_driven (待开发)
 
 用于真实机器人的使用。
 
@@ -103,6 +116,7 @@ roslaunch dual_ur_ros_driver dual_ur5_bringup.launch
 
 ## TODO
 * 右臂的 External Control 未配置。
+* dual_ur_ros_driven 未更新，待开发。
 
 
 
