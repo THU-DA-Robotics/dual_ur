@@ -36,9 +36,10 @@ git clone https://github.com/THU-DA-Robotics/dual_ur.git
 安装 dependencies：
 
 ```
-$ sudo apt update -qq
-$ rosdep update
-$ rosdep install --from-paths src --ignore-src -y
+sudo apt update -qq
+rosdep update
+cd <YOUR_PATH>/catkin_ws
+rosdep install --from-paths src --ignore-src -y
 ```
 
 
@@ -87,7 +88,7 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 
 具体配置方法参考 [MoveIt Setup Assistant](https://ros-planning.github.io/moveit_tutorials/doc/setup_assistant/setup_assistant_tutorial.html#moveit-setup-assistant)。
 
-**TIPs**: 
+**Tips**: 
 * 在生成了 xxx_moveit_config 包后，想再修改原始的 xacro 文件名称就很困难了，可能需要完全重新使用 MoveIt Setup Assistant 配置一遍，或者手动对所有文件中的索引名称进行修改。
 
 #### rviz中简单使用moveit
@@ -96,7 +97,8 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 roslaunch dual_ur5_moveit_config demo.launch
 ```
 
-
+**Tips**:
+* 如果运行 demo.launch 时，机械臂在两个状态之间来回跳，可能是因为之前有程序没 kill 掉，导致同时有两个节点在发送 /joint_states。
 
 
 

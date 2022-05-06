@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: dual_ur_description
+    relative_path: urdf/dual_ur5_robotiq2f85.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/dual_ur_robotiq2f85.srdf
+  CONFIG:
+    author_name: Mingrui Yu
+    author_email: ymr20@mails.tsinghua.edu.cn
+    generated_timestamp: 1651839610

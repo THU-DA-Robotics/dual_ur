@@ -9,6 +9,11 @@
 
 * 注意设置planning_group的时候，base_link_base_joint不能添加进去，否则的话，整个group就不是一个chain了。
 * Kinematic Solver 不能选择 ur_kinematics，存在关节名称命名不一致。因为现在关节名称前加了arm_x_了。
+* 不能同时打开两个 moveit setup assistant。
+* 机器人初始关节角可以在 fake_controller.yaml 里进行设置。
+
+## MoveIt
+
 
 
 

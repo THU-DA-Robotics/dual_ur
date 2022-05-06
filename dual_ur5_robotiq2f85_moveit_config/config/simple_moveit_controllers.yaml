@@ -1,0 +1,20 @@
+controller_list:
+  - name: dual_arm_gripper_position_control
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - arm_0_shoulder_pan_joint
+      - arm_0_shoulder_lift_joint
+      - arm_0_elbow_joint
+      - arm_0_wrist_1_joint
+      - arm_0_wrist_2_joint
+      - arm_0_wrist_3_joint
+      - gripper_0_finger_joint
+      - arm_1_shoulder_pan_joint
+      - arm_1_shoulder_lift_joint
+      - arm_1_elbow_joint
+      - arm_1_wrist_1_joint
+      - arm_1_wrist_2_joint
+      - arm_1_wrist_3_joint
+      - gripper_1_finger_joint
