@@ -1,0 +1,67 @@
+controller_list:
+  - name: fake_arm_0_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - arm_0_shoulder_pan_joint
+      - arm_0_shoulder_lift_joint
+      - arm_0_elbow_joint
+      - arm_0_wrist_1_joint
+      - arm_0_wrist_2_joint
+      - arm_0_wrist_3_joint
+  - name: fake_arm_1_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - arm_1_shoulder_pan_joint
+      - arm_1_shoulder_lift_joint
+      - arm_1_elbow_joint
+      - arm_1_wrist_1_joint
+      - arm_1_wrist_2_joint
+      - arm_1_wrist_3_joint
+  - name: fake_gripper_0_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - gripper_0_finger_joint
+  - name: fake_gripper_1_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - gripper_1_finger_joint
+  - name: fake_arm_gripper_0_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - arm_0_shoulder_pan_joint
+      - arm_0_shoulder_lift_joint
+      - arm_0_elbow_joint
+      - arm_0_wrist_1_joint
+      - arm_0_wrist_2_joint
+      - arm_0_wrist_3_joint
+      - gripper_0_finger_joint
+  - name: fake_arm_gripper_1_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - arm_1_shoulder_pan_joint
+      - arm_1_shoulder_lift_joint
+      - arm_1_elbow_joint
+      - arm_1_wrist_1_joint
+      - arm_1_wrist_2_joint
+      - arm_1_wrist_3_joint
+      - gripper_1_finger_joint
+  - name: fake_dual_arm_gripper_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - arm_0_shoulder_pan_joint
+      - arm_0_shoulder_lift_joint
+      - arm_0_elbow_joint
+      - arm_0_wrist_1_joint
+      - arm_0_wrist_2_joint
+      - arm_0_wrist_3_joint
+      - gripper_0_finger_joint
+      - arm_1_shoulder_pan_joint
+      - arm_1_shoulder_lift_joint
+      - arm_1_elbow_joint
+      - arm_1_wrist_1_joint
+      - arm_1_wrist_2_joint
+      - arm_1_wrist_3_joint
+      - gripper_1_finger_joint
+initial:  # Define initial robot poses per group
+  - group: dual_arm_gripper
+    pose: ready
