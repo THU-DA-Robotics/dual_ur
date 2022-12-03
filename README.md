@@ -61,8 +61,6 @@ source devel/setup.bash
 ### dual_ur_description
 
 
-
-
 #### rviz中可视化 xacro
 ```
 roslaunch dual_ur_description view_dual_ur5.launch
