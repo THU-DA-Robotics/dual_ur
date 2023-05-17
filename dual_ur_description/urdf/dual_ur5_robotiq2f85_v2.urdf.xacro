@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://wiki.ros.org/xacro" name="dual_ur_robotiq2f85">
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="dual_ur5_robotiq2f85_v2">
 
 
   <!-- *************************************************************************************************** -->
@@ -52,13 +52,30 @@
   <joint name="arm_0_gripper_0_joint" type="fixed">
     <parent link="arm_0_tool0" />
     <child link="gripper_0_base_link" />
-    <origin xyz="0 0 0" rpy="0 0 1.57" />
+    <origin xyz="0 0 0" rpy="0 0 ${pi/2.0}" />
   </joint>
 
   <joint name="arm_1_gripper_1_joint" type="fixed">
     <parent link="arm_1_tool0" />
     <child link="gripper_1_base_link" />
-    <origin xyz="0 0 0" rpy="0 0 1.57" />
+    <origin xyz="0 0 0" rpy="0 0 ${pi/2.0}" />
+  </joint>
+
+
+  <!-- *************************************************************************************************** -->
+  <!-- add dual arm tcp links (the middle of the gripper fingers) -->
+  <link name="arm_0_tcp"/>
+  <joint name="arm_0_tool0_tcp" type="fixed">
+      <origin xyz="0 0 0.145" rpy="${pi} 0 0"/>
+      <parent link="arm_0_tool0"/>
+      <child link="arm_0_tcp"/>
+  </joint>
+
+  <link name="arm_1_tcp"/>
+  <joint name="arm_1_tool0_tcp" type="fixed">
+      <origin xyz="0 0 0.145" rpy="${pi} 0 ${pi}"/>
+      <parent link="arm_1_tool0"/>
+      <child link="arm_1_tcp"/>
   </joint>
 
 
