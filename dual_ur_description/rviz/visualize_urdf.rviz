@@ -10,7 +10,7 @@ Panels:
         - /TF1
         - /TF1/Frames1
       Splitter Ratio: 0.5041875839233398
-    Tree Height: 796
+    Tree Height: 1079
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -25,7 +25,6 @@ Panels:
     Name: Views
     Splitter Ratio: 0.5
   - Class: rviz/Time
-    Experimental: false
     Name: Time
     SyncMode: 0
     SyncSource: ""
@@ -64,109 +63,227 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        arm_0_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        arm_0_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        arm_0_base_link_inertia:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_0_flange:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        arm_0_forearm_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_0_shoulder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_0_tool0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        arm_0_upper_arm_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_0_wrist_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_0_wrist_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_0_wrist_3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_1_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        arm_1_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        arm_1_base_link_inertia:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_1_flange:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        arm_1_forearm_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_1_shoulder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_1_tool0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        arm_1_upper_arm_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_1_wrist_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_1_wrist_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_1_wrist_3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         dual_base:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        robot_0/base:
+        gripper_0_base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        robot_0/base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        robot_0/base_link_inertia:
+        gripper_0_left_inner_finger:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        robot_0/flange:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        robot_0/forearm_link:
+        gripper_0_left_inner_finger_pad:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        robot_0/shoulder_link:
+        gripper_0_left_inner_knuckle:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        robot_0/tool0:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        robot_0/upper_arm_link:
+        gripper_0_left_outer_finger:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        robot_0/wrist_1_link:
+        gripper_0_left_outer_knuckle:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        robot_0/wrist_2_link:
+        gripper_0_right_inner_finger:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        robot_0/wrist_3_link:
+        gripper_0_right_inner_finger_pad:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        robot_1/base:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        robot_1/base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        robot_1/base_link_inertia:
+        gripper_0_right_inner_knuckle:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        robot_1/flange:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        robot_1/forearm_link:
+        gripper_0_right_outer_finger:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        robot_1/shoulder_link:
+        gripper_0_right_outer_knuckle:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        robot_1/tool0:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        robot_1/upper_arm_link:
+        gripper_0_robotiq_arg2f_base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        robot_1/wrist_1_link:
+        gripper_1_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        gripper_1_left_inner_finger:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        robot_1/wrist_2_link:
+        gripper_1_left_inner_finger_pad:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        robot_1/wrist_3_link:
+        gripper_1_left_inner_knuckle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_1_left_outer_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_1_left_outer_knuckle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_1_right_inner_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_1_right_inner_finger_pad:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_1_right_inner_knuckle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_1_right_outer_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_1_right_outer_knuckle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_1_robotiq_arg2f_base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -178,56 +295,12 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Class: rviz/TF
-      Enabled: true
+      Enabled: false
+      Filter (blacklist): ""
+      Filter (whitelist): ""
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        dual_base:
-          Value: false
-        robot_0/base:
-          Value: false
-        robot_0/base_link:
-          Value: false
-        robot_0/base_link_inertia:
-          Value: false
-        robot_0/flange:
-          Value: false
-        robot_0/forearm_link:
-          Value: false
-        robot_0/shoulder_link:
-          Value: false
-        robot_0/tool0:
-          Value: false
-        robot_0/upper_arm_link:
-          Value: false
-        robot_0/wrist_1_link:
-          Value: false
-        robot_0/wrist_2_link:
-          Value: false
-        robot_0/wrist_3_link:
-          Value: false
-        robot_1/base:
-          Value: false
-        robot_1/base_link:
-          Value: false
-        robot_1/base_link_inertia:
-          Value: false
-        robot_1/flange:
-          Value: false
-        robot_1/forearm_link:
-          Value: false
-        robot_1/shoulder_link:
-          Value: false
-        robot_1/tool0:
-          Value: false
-        robot_1/upper_arm_link:
-          Value: false
-        robot_1/wrist_1_link:
-          Value: false
-        robot_1/wrist_2_link:
-          Value: false
-        robot_1/wrist_3_link:
-          Value: false
       Marker Alpha: 1
       Marker Scale: 1
       Name: TF
@@ -235,35 +308,9 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        dual_base:
-          robot_0/base_link:
-            robot_0/base:
-              {}
-            robot_0/base_link_inertia:
-              robot_0/shoulder_link:
-                robot_0/upper_arm_link:
-                  robot_0/forearm_link:
-                    robot_0/wrist_1_link:
-                      robot_0/wrist_2_link:
-                        robot_0/wrist_3_link:
-                          robot_0/flange:
-                            robot_0/tool0:
-                              {}
-          robot_1/base_link:
-            robot_1/base:
-              {}
-            robot_1/base_link_inertia:
-              robot_1/shoulder_link:
-                robot_1/upper_arm_link:
-                  robot_1/forearm_link:
-                    robot_1/wrist_1_link:
-                      robot_1/wrist_2_link:
-                        robot_1/wrist_3_link:
-                          robot_1/flange:
-                            robot_1/tool0:
-                              {}
+        {}
       Update Interval: 0
-      Value: true
+      Value: false
     - Class: rviz/Marker
       Enabled: true
       Marker Topic: /visualization/desired_positions
@@ -332,7 +379,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 4.09068489074707
+      Distance: 1.3498286008834839
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -340,17 +387,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0.05620218813419342
-        Y: -0.07505648583173752
-        Z: -0.4187968671321869
+        X: 0.03973996266722679
+        Y: 0.523521363735199
+        Z: -0.17047378420829773
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.670396089553833
+      Pitch: 0.04539642482995987
       Target Frame: <Fixed Frame>
-      Yaw: 0.3403991460800171
+      Yaw: 5.366779804229736
     Saved:
       - Class: rviz/Orbit
         Distance: 4.086756229400635
@@ -395,10 +442,10 @@ Visualization Manager:
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1025
+  Height: 1308
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd000000040000000000000257000003a7fc0200000005fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d000003a7000000c900ffffff000000010000010f000003a7fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000003d000003a7000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004a00000003efc0100000002fb0000000800540069006d00650000000000000004a0000004f300fffffffb0000000800540069006d00650100000000000004500000000000000000000003cb000003a700000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd000000040000000000000257000004c2fc0200000005fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d000004c2000000c900ffffff000000010000010f000004c2fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000003d000004c2000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004a00000003efc0100000002fb0000000800540069006d00650000000000000004a00000041800fffffffb0000000800540069006d006501000000000000045000000000000000000000068e000004c200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -407,6 +454,6 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: false
-  Width: 1853
-  X: 72
+  Width: 2560
+  X: 0
   Y: 27
