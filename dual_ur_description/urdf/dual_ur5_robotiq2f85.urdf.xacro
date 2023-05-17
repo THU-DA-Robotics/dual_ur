@@ -62,4 +62,20 @@
   </joint>
 
 
+  <!-- *************************************************************************************************** -->
+  <!-- add dual arm tcp links (the middle of the gripper fingers) -->
+  <link name="arm_0_tcp"/>
+  <joint name="arm_0_tool0_tcp" type="fixed">
+      <origin xyz="0 0 0.145" rpy="${pi} 0 ${pi/2.0}"/>
+      <parent link="arm_0_tool0"/>
+      <child link="arm_0_tcp"/>
+  </joint>
+
+  <link name="arm_1_tcp"/>
+  <joint name="arm_1_tool0_tcp" type="fixed">
+      <origin xyz="0 0 0.145" rpy="${pi} 0 ${pi/2.0}"/>
+      <parent link="arm_1_tool0"/>
+      <child link="arm_1_tcp"/>
+  </joint>
+
 </robot>
