@@ -2,7 +2,7 @@
 <launch>
 
     <!-- dual arm 一个整体模型 -->
-    <include file = "$(find dual_ur_description)/launch/load_dual_ur5.launch"/>
+    <include file = "$(find dual_ur_description)/launch/load_dual_ur5_robotiq2f85_v2.launch"/>
 
     <!-- dual arm 整体 joint states 发布 -->
     <arg name="joint_state_publisher_source_list" default="[arm_0/joint_states, arm_1/joint_states]" />
@@ -11,7 +11,7 @@
         <!-- <remap from="/joint_states" to="/state/dual_arm/joint_states"/> -->
     </node>
 
-    <!-- TF 用的是下面各自bringup发送的 -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
 
     <!-- 分别启动两个UR各自的bringup -->
@@ -24,7 +24,7 @@
             <arg name="script_command_port" value="50004" />
             <arg name="tf_prefix" value="arm_0_"/>
             <arg name="controller_config_file" value="$(find dual_ur_ros_driver)/config/arm_0_ur5_controllers.yaml"/>
-            <arg name="robot_description_file" value="$(find dual_ur_description)/launch/load_dual_ur5.launch" />
+            <arg name="robot_description_file" value="$(find dual_ur_description)/launch/load_dual_ur5_robotiq2f85_v2.launch" />
         </include>
     </group>
 
@@ -37,7 +37,7 @@
             <arg name="script_command_port" value="50014" />
             <arg name="tf_prefix" value="arm_1_"/>
             <arg name="controller_config_file" value="$(find dual_ur_ros_driver)/config/arm_1_ur5_controllers.yaml"/>
-            <arg name="robot_description_file" value="$(find dual_ur_description)/launch/load_dual_ur5.launch" />
+            <arg name="robot_description_file" value="$(find dual_ur_description)/launch/load_dual_ur5_robotiq2f85_v2.launch" />
         </include>
     </group>
 

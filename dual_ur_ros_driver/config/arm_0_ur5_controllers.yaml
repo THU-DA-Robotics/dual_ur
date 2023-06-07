@@ -5,12 +5,12 @@ hardware_control_loop:
 # Settings for ros_control hardware interface
 ur_hardware_interface:
    joints: &robot_joints
-     - robot_0/shoulder_pan_joint
-     - robot_0/shoulder_lift_joint
-     - robot_0/elbow_joint
-     - robot_0/wrist_1_joint
-     - robot_0/wrist_2_joint
-     - robot_0/wrist_3_joint
+     - arm_0_shoulder_pan_joint
+     - arm_0_shoulder_lift_joint
+     - arm_0_elbow_joint
+     - arm_0_wrist_1_joint
+     - arm_0_wrist_2_joint
+     - arm_0_wrist_3_joint
 
 # Publish all joint states ----------------------------------
 joint_state_controller:
@@ -35,12 +35,12 @@ scaled_pos_joint_traj_controller:
    constraints:
       goal_time: 0.6
       stopped_velocity_tolerance: 0.05
-      robot_0/shoulder_pan_joint: {trajectory: 0.2, goal: 0.1}
-      robot_0/shoulder_lift_joint: {trajectory: 0.2, goal: 0.1}
-      robot_0/elbow_joint: {trajectory: 0.2, goal: 0.1}
-      robot_0/wrist_1_joint: {trajectory: 0.2, goal: 0.1}
-      robot_0/wrist_2_joint: {trajectory: 0.2, goal: 0.1}
-      robot_0/wrist_3_joint: {trajectory: 0.2, goal: 0.1}
+      arm_0_shoulder_pan_joint: {trajectory: 0.2, goal: 0.1}
+      arm_0_shoulder_lift_joint: {trajectory: 0.2, goal: 0.1}
+      arm_0_elbow_joint: {trajectory: 0.2, goal: 0.1}
+      arm_0_wrist_1_joint: {trajectory: 0.2, goal: 0.1}
+      arm_0_wrist_2_joint: {trajectory: 0.2, goal: 0.1}
+      arm_0_wrist_3_joint: {trajectory: 0.2, goal: 0.1}
    stop_trajectory_duration: 0.5
    state_publish_rate: *loop_hz
    action_monitor_rate: 20
@@ -51,12 +51,12 @@ pos_joint_traj_controller:
    constraints:
       goal_time: 0.6
       stopped_velocity_tolerance: 0.05
-      robot_0/shoulder_pan_joint: {trajectory: 0.2, goal: 0.1}
-      robot_0/shoulder_lift_joint: {trajectory: 0.2, goal: 0.1}
-      robot_0/elbow_joint: {trajectory: 0.2, goal: 0.1}
-      robot_0/wrist_1_joint: {trajectory: 0.2, goal: 0.1}
-      robot_0/wrist_2_joint: {trajectory: 0.2, goal: 0.1}
-      robot_0/wrist_3_joint: {trajectory: 0.2, goal: 0.1}
+      arm_0_shoulder_pan_joint: {trajectory: 0.2, goal: 0.1}
+      arm_0_shoulder_lift_joint: {trajectory: 0.2, goal: 0.1}
+      arm_0_elbow_joint: {trajectory: 0.2, goal: 0.1}
+      arm_0_wrist_1_joint: {trajectory: 0.2, goal: 0.1}
+      arm_0_wrist_2_joint: {trajectory: 0.2, goal: 0.1}
+      arm_0_wrist_3_joint: {trajectory: 0.2, goal: 0.1}
    stop_trajectory_duration: 0.5
    state_publish_rate: *loop_hz
    action_monitor_rate: 20
@@ -67,28 +67,28 @@ scaled_vel_joint_traj_controller:
    constraints:
       goal_time: 0.6
       stopped_velocity_tolerance: 0.05
-      robot_0/shoulder_pan_joint: {trajectory: 0.1, goal: 0.1}
-      robot_0/shoulder_lift_joint: {trajectory: 0.1, goal: 0.1}
-      robot_0/elbow_joint: {trajectory: 0.1, goal: 0.1}
-      robot_0/wrist_1_joint: {trajectory: 0.1, goal: 0.1}
-      robot_0/wrist_2_joint: {trajectory: 0.1, goal: 0.1}
-      robot_0/wrist_3_joint: {trajectory: 0.1, goal: 0.1}
+      arm_0_shoulder_pan_joint: {trajectory: 0.1, goal: 0.1}
+      arm_0_shoulder_lift_joint: {trajectory: 0.1, goal: 0.1}
+      arm_0_elbow_joint: {trajectory: 0.1, goal: 0.1}
+      arm_0_wrist_1_joint: {trajectory: 0.1, goal: 0.1}
+      arm_0_wrist_2_joint: {trajectory: 0.1, goal: 0.1}
+      arm_0_wrist_3_joint: {trajectory: 0.1, goal: 0.1}
    gains:
       #!!These values have not been optimized!!
-      robot_0/shoulder_pan_joint:  {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-      robot_0/shoulder_lift_joint: {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-      robot_0/elbow_joint:         {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-      robot_0/wrist_1_joint:       {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-      robot_0/wrist_2_joint:       {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-      robot_0/wrist_3_joint:       {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
+      arm_0_shoulder_pan_joint:  {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
+      arm_0_shoulder_lift_joint: {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
+      arm_0_elbow_joint:         {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
+      arm_0_wrist_1_joint:       {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
+      arm_0_wrist_2_joint:       {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
+      arm_0_wrist_3_joint:       {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
    # Use a feedforward term to reduce the size of PID gains
    velocity_ff:
-      robot_0/shoulder_pan_joint: 1.0
-      robot_0/shoulder_lift_joint: 1.0
-      robot_0/elbow_joint: 1.0
-      robot_0/wrist_1_joint: 1.0
-      robot_0/wrist_2_joint: 1.0
-      robot_0/wrist_3_joint: 1.0
+      arm_0_shoulder_pan_joint: 1.0
+      arm_0_shoulder_lift_joint: 1.0
+      arm_0_elbow_joint: 1.0
+      arm_0_wrist_1_joint: 1.0
+      arm_0_wrist_2_joint: 1.0
+      arm_0_wrist_3_joint: 1.0
    stop_trajectory_duration: 0.5
    state_publish_rate: *loop_hz
    action_monitor_rate: 20
@@ -99,28 +99,28 @@ vel_joint_traj_controller:
    constraints:
       goal_time: 0.6
       stopped_velocity_tolerance: 0.05
-      robot_0/shoulder_pan_joint: {trajectory: 0.1, goal: 0.1}
-      robot_0/shoulder_lift_joint: {trajectory: 0.1, goal: 0.1}
-      robot_0/elbow_joint: {trajectory: 0.1, goal: 0.1}
-      robot_0/wrist_1_joint: {trajectory: 0.1, goal: 0.1}
-      robot_0/wrist_2_joint: {trajectory: 0.1, goal: 0.1}
-      robot_0/wrist_3_joint: {trajectory: 0.1, goal: 0.1}
+      arm_0_shoulder_pan_joint: {trajectory: 0.1, goal: 0.1}
+      arm_0_shoulder_lift_joint: {trajectory: 0.1, goal: 0.1}
+      arm_0_elbow_joint: {trajectory: 0.1, goal: 0.1}
+      arm_0_wrist_1_joint: {trajectory: 0.1, goal: 0.1}
+      arm_0_wrist_2_joint: {trajectory: 0.1, goal: 0.1}
+      arm_0_wrist_3_joint: {trajectory: 0.1, goal: 0.1}
    gains:
       #!!These values have not been optimized!!
-      robot_0/shoulder_pan_joint:  {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-      robot_0/shoulder_lift_joint: {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-      robot_0/elbow_joint:         {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-      robot_0/wrist_1_joint:       {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-      robot_0/wrist_2_joint:       {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-      robot_0/wrist_3_joint:       {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
+      arm_0_shoulder_pan_joint:  {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
+      arm_0_shoulder_lift_joint: {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
+      arm_0_elbow_joint:         {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
+      arm_0_wrist_1_joint:       {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
+      arm_0_wrist_2_joint:       {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
+      arm_0_wrist_3_joint:       {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
    # Use a feedforward term to reduce the size of PID gains
    velocity_ff:
-      robot_0/shoulder_pan_joint: 1.0
-      robot_0/shoulder_lift_joint: 1.0
-      robot_0/elbow_joint: 1.0
-      robot_0/wrist_1_joint: 1.0
-      robot_0/wrist_2_joint: 1.0
-      robot_0/wrist_3_joint: 1.0
+      arm_0_shoulder_pan_joint: 1.0
+      arm_0_shoulder_lift_joint: 1.0
+      arm_0_elbow_joint: 1.0
+      arm_0_wrist_1_joint: 1.0
+      arm_0_wrist_2_joint: 1.0
+      arm_0_wrist_3_joint: 1.0
    stop_trajectory_duration: 0.5
    state_publish_rate: *loop_hz
    action_monitor_rate: 20
