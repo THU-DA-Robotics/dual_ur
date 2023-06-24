@@ -2,7 +2,8 @@
 <launch>
   <!--ur5 parameters files -->
   <arg name="joint_limit_params" default="$(find ur_description)/config/ur5/joint_limits.yaml"/>
-  <arg name="kinematics_params" default="$(find ur_description)/config/ur5/default_kinematics.yaml"/>
+  <arg name="kinematics_params_0" default="$(find ur_description)/config/ur5/default_kinematics.yaml"/>
+  <arg name="kinematics_params_1" default="$(find ur_description)/config/ur5/default_kinematics.yaml"/>
   <arg name="physical_params" default="$(find ur_description)/config/ur5/physical_parameters.yaml"/>
   <arg name="visual_params" default="$(find ur_description)/config/ur5/visual_parameters.yaml"/>
   <!--common parameters -->
@@ -14,11 +15,11 @@
 
 
   <!-- use common launch file and pass all arguments to it -->
-  <!-- <include file="$(find dual_ur_ros)/launch/load_dual_ur.launch" pass_all_args="true"/> -->
 
   <param name="robot_description" command="$(find xacro)/xacro '$(find dual_ur_description)/urdf/dual_ur5_robotiq2f85_v2.urdf.xacro'
     joint_limit_params:=$(arg joint_limit_params)
-    kinematics_params:=$(arg kinematics_params)
+    kinematics_params_0:=$(arg kinematics_params_0)
+    kinematics_params_1:=$(arg kinematics_params_1)
     physical_params:=$(arg physical_params)
     visual_params:=$(arg visual_params)
     transmission_hw_interface:=$(arg transmission_hw_interface)

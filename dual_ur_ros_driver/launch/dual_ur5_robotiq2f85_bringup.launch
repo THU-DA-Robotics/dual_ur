@@ -1,18 +1,12 @@
 <?xml version="1.0"?>
 <launch>
 
-    <!-- dual arm 一个整体模型 -->
-    <include file = "$(find dual_ur_description)/launch/load_dual_ur5_robotiq2f85_v2.launch"/>
-
-    <!-- dual arm 整体 joint states 发布 -->
-    <arg name="joint_state_publisher_source_list" default="[arm_0/joint_states, arm_1/joint_states]" />
-    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
-        <rosparam param="source_list" subst_value="True">$(arg joint_state_publisher_source_list)</rosparam>
-        <!-- <remap from="/joint_states" to="/state/dual_arm/joint_states"/> -->
-    </node>
-
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
-
+    <arg name="use_rviz" default="true" />
+    <arg name="use_state_publisher" default="true" />
+    <arg name="ur5_0_kinematics_params" default="$(find dual_ur_description)/config/ur5_0_kinematics.yaml"/>
+    <arg name="ur5_1_kinematics_params" default="$(find dual_ur_description)/config/ur5_1_kinematics.yaml"/>
+    <arg name="ur5_0_controllers" value="$(find dual_ur_ros_driver)/config/arm_0_ur5_controllers.yaml"/>
+    <arg name="ur5_1_controllers" value="$(find dual_ur_ros_driver)/config/arm_1_ur5_controllers.yaml"/>
 
     <!-- 分别启动两个UR各自的bringup -->
     <group ns="arm_0">
@@ -23,8 +17,9 @@
             <arg name="trajectory_port" value="50003"/>
             <arg name="script_command_port" value="50004" />
             <arg name="tf_prefix" value="arm_0_"/>
-            <arg name="controller_config_file" value="$(find dual_ur_ros_driver)/config/arm_0_ur5_controllers.yaml"/>
-            <arg name="robot_description_file" value="$(find dual_ur_description)/launch/load_dual_ur5_robotiq2f85_v2.launch" />
+            <arg name="controller_config_file" value="$(arg ur5_0_controllers)"/>
+            <arg name="robot_description_file" value="$(find dual_ur_description)/launch/load_nothing.launch" />
+            <arg name="kinematics_config" value="$(arg ur5_0_kinematics_params)" />
         </include>
     </group>
 
@@ -36,12 +31,36 @@
             <arg name="trajectory_port" value="50013"/>
             <arg name="script_command_port" value="50014" />
             <arg name="tf_prefix" value="arm_1_"/>
-            <arg name="controller_config_file" value="$(find dual_ur_ros_driver)/config/arm_1_ur5_controllers.yaml"/>
-            <arg name="robot_description_file" value="$(find dual_ur_description)/launch/load_dual_ur5_robotiq2f85_v2.launch" />
+            <arg name="controller_config_file" value="$(arg ur5_1_controllers)"/>
+            <arg name="robot_description_file" value="$(find dual_ur_description)/launch/load_nothing.launch" />
+            <arg name="kinematics_config" value="$(arg ur5_1_kinematics_params)"  />
         </include>
     </group>
 
 
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find dual_ur_ros_driver)/rviz/view_robot.rviz" required="true" />
+    <!-- dual arm 一个整体模型 -->
+    <include file = "$(find dual_ur_description)/launch/load_dual_ur5_robotiq2f85_v2.launch">
+        <arg name="kinematics_params_0" value="$(arg ur5_0_kinematics_params)" />
+        <arg name="kinematics_params_1" value="$(arg ur5_1_kinematics_params)" />
+    </include>
+
+
+    <!-- dual arm 整体 joint states 发布 -->
+    <group if="$(arg use_state_publisher)">
+        <arg name="joint_state_publisher_source_list" default="[arm_0/joint_states, arm_1/joint_states]" />
+        <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+            <rosparam param="source_list" subst_value="True">$(arg joint_state_publisher_source_list)</rosparam>
+            <remap from="/joint_states" to="/ur_ros_driver/dual_arm/joint_states"/>
+        </node>
+
+        <!-- for TF -->
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
+            <remap from="/joint_states" to="/ur_ros_driver/dual_arm/joint_states"/>
+        </node>
+    </group>
+
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find dual_ur_ros_driver)/rviz/view_robot.rviz" 
+        required="true" if="$(arg use_rviz)" />
 
 </launch>

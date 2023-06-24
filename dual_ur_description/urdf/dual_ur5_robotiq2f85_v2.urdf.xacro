@@ -8,7 +8,8 @@
 
   <!-- parameters -->
    <xacro:arg name="joint_limit_params" default="$(find ur_description)/config/ur5/joint_limits.yaml"/>
-   <xacro:arg name="kinematics_params" default="$(find ur_description)/config/ur5/default_kinematics.yaml"/>
+   <xacro:arg name="kinematics_params_0" default="$(find ur_description)/config/ur5/default_kinematics.yaml"/>
+   <xacro:arg name="kinematics_params_1" default="$(find ur_description)/config/ur5/default_kinematics.yaml"/>
    <xacro:arg name="physical_params" default="$(find ur_description)/config/ur5/physical_parameters.yaml"/>
    <xacro:arg name="visual_params" default="$(find ur_description)/config/ur5/visual_parameters.yaml"/>
    <!-- legal values:

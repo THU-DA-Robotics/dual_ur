@@ -39,7 +39,8 @@
 
   <!-- parameters -->
   <xacro:arg name="joint_limit_params" default="$(find ur_description)/config/ur5/joint_limits.yaml"/>
-  <xacro:arg name="kinematics_params" default="$(find ur_description)/config/ur5/default_kinematics.yaml"/>
+  <xacro:arg name="kinematics_params_0" default="$(find ur_description)/config/ur5/default_kinematics.yaml"/>
+  <xacro:arg name="kinematics_params_1" default="$(find ur_description)/config/ur5/default_kinematics.yaml"/>
   <xacro:arg name="physical_params" default="$(find ur_description)/config/ur5/physical_parameters.yaml"/>
   <xacro:arg name="visual_params" default="$(find ur_description)/config/ur5/visual_parameters.yaml"/>
   <!-- legal values:
@@ -56,7 +57,7 @@
   <xacro:ur_robot
     prefix="arm_0_"
     joint_limits_parameters_file="$(arg joint_limit_params)"
-    kinematics_parameters_file="$(arg kinematics_params)"
+    kinematics_parameters_file="$(arg kinematics_params_0)"
     physical_parameters_file="$(arg physical_params)"
     visual_parameters_file="$(arg visual_params)"
     transmission_hw_interface="$(arg transmission_hw_interface)"
@@ -69,7 +70,7 @@
   <xacro:ur_robot
     prefix="arm_1_"
     joint_limits_parameters_file="$(arg joint_limit_params)"
-    kinematics_parameters_file="$(arg kinematics_params)"
+    kinematics_parameters_file="$(arg kinematics_params_1)"
     physical_parameters_file="$(arg physical_params)"
     visual_parameters_file="$(arg visual_params)"
     transmission_hw_interface="$(arg transmission_hw_interface)"
