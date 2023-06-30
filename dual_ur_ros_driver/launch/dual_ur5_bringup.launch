@@ -1,33 +1,43 @@
 <?xml version="1.0"?>
 <launch>
-    <group ns="robot_0">
+
+    <!-- dual arm 一个整体模型 -->
+    <include file = "$(find dual_ur_description)/launch/load_dual_ur5.launch"/>
+    <!-- dual arm 整体 joint states 发布 -->
+    <arg name="joint_state_publisher_source_list" default="[arm_0/joint_states, arm_1/joint_states]" />
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+        <rosparam param="source_list" subst_value="True">$(arg joint_state_publisher_source_list)</rosparam>
+        <!-- <remap from="/joint_states" to="/state/dual_arm/joint_states"/> -->
+    </node>
+    <!-- TF 用的是下面各自bringup发送的 -->
+
+
+    <!-- 分别启动两个UR各自的bringup -->
+    <group ns="arm_0">
         <include file="$(find ur_robot_driver)/launch/ur5_bringup.launch">
             <arg name="robot_ip" value="192.168.100.50" />
             <arg name="reverse_port" value="50001" />
             <arg name="script_sender_port" value="50002"/>
             <arg name="trajectory_port" value="50003"/>
-            <arg name="tf_prefix" value="robot_0/"/>
-            <arg name="controller_config_file" value="$(find dual_ur_ros_driver)/config/robot_0_ur5_controllers.yaml"/>
-            <arg name="robot_description_file" value="$(find dual_ur_ros_driver)/launch/load_dual_ur5.launch" />
+            <arg name="tf_prefix" value="arm_0_"/>
+            <arg name="controller_config_file" value="$(find dual_ur_ros_driver)/config/arm_0_ur5_controllers.yaml"/>
+            <arg name="robot_description_file" value="$(find dual_ur_description)/launch/load_dual_ur5.launch" />
         </include>
     </group>
 
-
-    <group ns="robot_1">
+    <group ns="arm_1">
         <include file="$(find ur_robot_driver)/launch/ur5_bringup.launch">
             <arg name="robot_ip" value="192.168.101.50" />
             <arg name="reverse_port" value="50004" />
             <arg name="script_sender_port" value="50005"/>
             <arg name="trajectory_port" value="50006"/>
-            <arg name="tf_prefix" value="robot_1/"/>
-            <arg name="controller_config_file" value="$(find dual_ur_ros_driver)/config/robot_1_ur5_controllers.yaml"/>
-            <arg name="robot_description_file" value="$(find dual_ur_ros_driver)/launch/load_dual_ur5.launch" />
+            <arg name="tf_prefix" value="arm_1_"/>
+            <arg name="controller_config_file" value="$(find dual_ur_ros_driver)/config/arm_1_ur5_controllers.yaml"/>
+            <arg name="robot_description_file" value="$(find dual_ur_description)/launch/load_dual_ur5.launch" />
         </include>
     </group>
 
 
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find dual_ur_ros_driver)/rviz/view_robot.rviz" required="true" />
-
-
 
 </launch>
