@@ -89,12 +89,17 @@
     <origin xyz="0 -0.357 0" rpy="${pi/2} 0 0" />
   </joint>
 
-  <joint name="dual_base_joint_1" type="fixed">
+  <!-- <joint name="dual_base_joint_1" type="fixed">
     <parent link="dual_base" />
     <child link="arm_1_base_link" />
     <origin xyz="0 0.357 0" rpy="${-pi/2} ${pi} 0" />
-  </joint>
+  </joint> -->
 
+  <joint name="dual_base_joint_1" type="fixed">
+    <parent link="dual_base" />
+    <child link="arm_1_base_link" />
+    <origin xyz="-0.00286359  0.3585708  -0.01326747" rpy="1.58859659 0.01214445 3.12246477" />
+  </joint>
 
 
 </robot>
